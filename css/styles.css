@@ -1,0 +1,53 @@
+body {
+    /* Location of the image */
+    background-image: url('../img/man-at-office.jpg');
+    
+    /* Image is centered vertically and horizontally at all times */
+    background-position: center center;
+    
+    /* Image doesn't repeat */
+    background-repeat: no-repeat;
+    
+    /* Makes the image fixed in the viewport so that it doesn't move when 
+       the content height is greater than the image height */
+    background-attachment: fixed;
+    
+    /* This is what makes the background image rescale based on its container's size */
+    background-size: cover;
+    
+    /* Pick a solid background color that will be displayed while the background image is loading */
+    background-color:#464646;
+    
+    /* SHORTHAND CSS NOTATION
+     * background: url(background-photo.jpg) center center cover no-repeat fixed;
+     */
+}
+
+.full-screen {
+    height: 100vh;
+}
+
+
+.jumbotron {
+    background-color: rgba(245, 245, 245, 0.20);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.imageHoverizable {
+    height: 200px;
+    margin: 10px;
+}
+
+.imageHoverizable:hover {
+    height: 250px;
+    margin: 10px;
+}

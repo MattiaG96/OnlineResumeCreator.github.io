@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+    <link href="../css/styles.css" rel="stylesheet">
+    <link href="../css/all.css" rel="stylesheet">
+
+    <title>Online Resume Maker</title>
+</head>
+
+<body>
+
+    <div id="firstBackground" class="full-screen">
+        <div class="container-fluid">
+            <div class="row" style="margin: 20px !important;">
+                <div class="col text-end">
+                    <button type="button" class="btn btn-primary btn-primary-yellow">
+                        <i class="fas fa-file-pdf" style="margin-right: 10px;"></i> Print your resume for free
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-1"></div>
+                <div class="col-10">
+                    <div class="white-background">
+                        <h2>
+                            Resume <button type="button" class="btn btn-primary btn-primary-yellow"
+                                data-bs-toggle="modal" data-bs-target="#basicInfoModal"><i class="fas fa-plus"
+                                    style="margin-right: 5px;"></i>Add basic info</button>
+                        </h2>
+                        <div class="row" style="background-color: black; height: 1px; margin: 10px;"></div>
+                        <div class="row">
+                            <div class="col" style="margin-left: 20px;">
+                                <!-- BASIC INFO -->
+                                <p id="nameLabel"><b>Name: </b></p>
+                                <p id="surnameLabel"><b>Surname: </b></p>
+                                <p id="birthdateLabel"><b>Birthdate: </b></p>
+                                <p id="telLabel"><b>Phone number: </b></p>
+                                <p id="emailLabel"><b>E-mail: </b></p>
+                            </div>
+                            <div class="col text-end" style="margin-right: 20px;">
+                                <!-- IMAGE -->
+                                <img height="180px" width="150px" id="profileImage"
+                                    style="border: black 1px solid; object-fit: cover;">
+                            </div>
+                        </div>
+                        <div class="row" style="background-color: black; height: 1px; margin: 10px;"></div>
+                        <div class="row">
+                            <div class="col" style="margin-right: 20px; margin-left: 20px;">
+                                <h3>
+                                    Work Experience <button type="button" class="btn btn-primary btn-primary-yellow"
+                                        data-bs-toggle="modal" data-bs-target="#workExperienceModal"><i
+                                            class="fas fa-plus" style="margin-right: 5px;"></i>Add work
+                                        experience</button>
+                                </h3>
+                                <div id="workExperienceContainer">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col" style="margin-left: 20px;">
+                                <h3>
+                                    Education <button type="button" class="btn btn-primary btn-primary-yellow"><i
+                                            class="fas fa-plus" style="margin-right: 5px;"></i>Add education</button>
+                                </h3>
+                            </div>
+                            <div class="col text-end" style="margin-right: 20px;">
+                                <h3>
+                                    Skills <button type="button" class="btn btn-primary btn-primary-yellow"><i
+                                            class="fas fa-plus" style="margin-right: 5px;"></i>Add skills</button>
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-1"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Basic Info Modal 
+    
+        data-bs-toggle="modal" data-bs-target="#modalCVOne" -->
+
+    <div class="modal fade" id="basicInfoModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Basic Info Form</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group" id="nameContainer">
+                            <input class="form-control" type="text" id="nameInput" placeholder="Name">
+                        </div>
+                        <div class="form-group" id="surnameContainer">
+                            <input class="form-control" type="text" id="surnameInput" placeholder="Surname">
+                        </div>
+                        <div class="form-group" id="birthdateContainer">
+                            <input class="form-control" type="text" id="birthdateInput" placeholder="Birthdate">
+                        </div>
+                        <div class="form-group" id="telContainer">
+                            <input class="form-control" type="text" id="telInput" placeholder="Telephone number">
+                        </div>
+                        <div class="form-group" id="emailContainer">
+                            <input class="form-control" type="text" id="emailInput" placeholder="E-mail">
+                        </div>
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label">Choose a photo for your resume</label>
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-primary-yellow" onclick="getBasicInfo()">Save
+                        info</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Work Experience Modal -->
+
+    <div class="modal fade" id="workExperienceModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Work Experience Form</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group" id="companyNameContainer">
+                            <input class="form-control" type="text" id="companyInput" placeholder="Name of the company">
+                        </div>
+                        <div class="form-group" id="positionContainer">
+                            <input class="form-control" type="text" id="positionInput" placeholder="Position">
+                        </div>
+                        <div class="form-group" id="descriptionContainer">
+                            <textarea class="form-control" id="descriptionInput" rows="5"
+                                placeholder="Job description(optional)"></textarea>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group" id="startYearContainer">
+                                    <input class="form-control" type="text" id="startYearInput"
+                                        placeholder="Start year (2015)">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group" id="endYearContainer">
+                                    <input class="form-control" type="text" id="endYearInput"
+                                        placeholder="End year (2018)">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-primary-yellow" onclick="saveWorkingInfo()">Save
+                        info</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="../js/cvone.js"></script>
+
+</body>
+
+</html>

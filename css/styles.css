@@ -1,23 +1,23 @@
 body {
     /* Location of the image */
     background-image: url('../img/man-at-office.jpg');
-    
+
     /* Image is centered vertically and horizontally at all times */
     background-position: center center;
-    
+
     /* Image doesn't repeat */
     background-repeat: no-repeat;
-    
+
     /* Makes the image fixed in the viewport so that it doesn't move when 
        the content height is greater than the image height */
     background-attachment: fixed;
-    
+
     /* This is what makes the background image rescale based on its container's size */
     background-size: cover;
-    
+
     /* Pick a solid background color that will be displayed while the background image is loading */
-    background-color:#464646;
-    
+    background-color: #464646;
+
     /* SHORTHAND CSS NOTATION
      * background: url(background-photo.jpg) center center cover no-repeat fixed;
      */
@@ -50,4 +50,35 @@ body {
 .imageHoverizable:hover {
     height: 250px;
     margin: 10px;
+}
+
+.form-group {
+    margin: 10px !important;
+}
+
+.btn-primary-yellow {
+    background-color: rgb(205, 207, 40) !important;
+    color: darkslategray !important;
+    border: rgb(205, 207, 40) 1px solid !important;
+}
+
+.btn-primary-yellow:hover {
+    background-color: white !important;
+    color: rgb(205, 207, 40) !important;
+    border: rgb(205, 207, 40) 1px solid !important;
+}
+
+.white-background {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+}
+
+.fa-trash-alt {
+    color: red;
+}
+
+.fa-trash-alt:hover {
+    color: rgb(165, 0, 0);
 }

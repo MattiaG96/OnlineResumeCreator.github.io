@@ -12,6 +12,8 @@
     <link href="../css/styles.css" rel="stylesheet">
     <link href="../css/all.css" rel="stylesheet">
 
+    <script src="../js/html2pdf.bundle.min.js"></script>
+
     <title>Online Resume Maker</title>
 </head>
 
@@ -21,25 +23,30 @@
         <div class="container-fluid">
             <div class="row" style="margin: 20px !important;">
                 <div class="col text-end">
-                    <button type="button" class="btn btn-primary btn-primary-yellow">
-                        <i class="fas fa-file-pdf" style="margin-right: 10px;"></i> Print your resume for free
-                    </button>
+                    <div class="dropdown">
+                        <button class="btn btn-primary btn-primary-yellow dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-download" style="margin-right: 5px;"></i>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                          <li><a class="dropdown-item" href="#" onclick="showPDFPreview()"><i class="fas fa-eye" style="margin-right: 10px;"></i>Download a preview</a></li>
+                          <li><a class="dropdown-item" href="#" onclick="printPDF()"><i class="fas fa-file-pdf" style="margin-right: 10px;"></i>Download a PDF for free</a></li>
+                        </ul>
+                      </div>
                 </div>
             </div>
         </div>
-        <div class="container">
+        <div class="container" id="resumeTemplate">
             <div class="row">
-                <div class="col-1"></div>
-                <div class="col-10">
-                    <div class="white-background">
+                <div class="col">
+                    <div class="white-background" id="watermarkTemplate">
                         <h2>
-                            Resume <button type="button" class="btn btn-primary btn-primary-yellow"
+                            Resume <button type="button" class="btn btn-primary btn-primary-yellow hiddebleButtons"
                                 data-bs-toggle="modal" data-bs-target="#basicInfoModal"><i class="fas fa-plus"
                                     style="margin-right: 5px;"></i>Add basic info</button>
                         </h2>
                         <div class="row" style="background-color: black; height: 1px; margin: 10px;"></div>
                         <div class="row">
-                            <div class="col" style="margin-left: 20px;">
+                            <div class="col my-auto" style="margin-left: 20px;">
                                 <!-- BASIC INFO -->
                                 <p id="nameLabel"><b>Name: </b></p>
                                 <p id="surnameLabel"><b>Surname: </b></p>
@@ -49,7 +56,7 @@
                             </div>
                             <div class="col text-end" style="margin-right: 20px;">
                                 <!-- IMAGE -->
-                                <img height="180px" width="150px" id="profileImage"
+                                <img height="150px" width="130px" id="profileImage"
                                     style="border: black 1px solid; object-fit: cover;">
                             </div>
                         </div>
@@ -57,7 +64,7 @@
                         <div class="row">
                             <div class="col" style="margin-right: 20px; margin-left: 20px;">
                                 <h3>
-                                    Work Experience <button type="button" class="btn btn-primary btn-primary-yellow"
+                                    Work Experience <button type="button" class="btn btn-primary btn-primary-yellow hiddebleButtons"
                                         data-bs-toggle="modal" data-bs-target="#workExperienceModal"><i
                                             class="fas fa-plus" style="margin-right: 5px;"></i>Add work
                                         experience</button>
@@ -69,27 +76,32 @@
                         <div class="row">
                             <div class="col" style="margin-left: 20px;">
                                 <h3>
-                                    Education <button type="button" class="btn btn-primary btn-primary-yellow"><i
-                                            class="fas fa-plus" style="margin-right: 5px;"></i>Add education</button>
+                                    Education <button type="button" class="btn btn-primary btn-primary-yellow hiddebleButtons"
+                                        data-bs-toggle="modal" data-bs-target="#educationModal"><i class="fas fa-plus"
+                                            style="margin-right: 5px;"></i>Add education</button>
                                 </h3>
+                                <div class="row" id="educationContainer">
+
+                                </div>
                             </div>
-                            <div class="col text-end" style="margin-right: 20px;">
+                            <div class="col" style="margin-right: 20px;">
                                 <h3>
-                                    Skills <button type="button" class="btn btn-primary btn-primary-yellow"><i
-                                            class="fas fa-plus" style="margin-right: 5px;"></i>Add skills</button>
+                                    Skills <button type="button" class="btn btn-primary btn-primary-yellow hiddebleButtons"
+                                        data-bs-toggle="modal" data-bs-target="#skillModal"><i class="fas fa-plus"
+                                            style="margin-right: 5px;"></i>Add skills</button>
                                 </h3>
+                                <div class="row" id="skillsContainer">
+
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-1"></div>
             </div>
         </div>
     </div>
 
-    <!-- Basic Info Modal 
-    
-        data-bs-toggle="modal" data-bs-target="#modalCVOne" -->
+    <!-- Basic Info Modal -->
 
     <div class="modal fade" id="basicInfoModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -114,7 +126,7 @@
                             <input class="form-control" type="text" id="telInput" placeholder="Telephone number">
                         </div>
                         <div class="form-group" id="emailContainer">
-                            <input class="form-control" type="text" id="emailInput" placeholder="E-mail">
+                            <input class="form-control" type="email" id="emailInput" placeholder="E-mail">
                         </div>
                         <div class="mb-3">
                             <label for="formFile" class="form-label">Choose a photo for your resume</label>
@@ -170,6 +182,61 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary btn-primary-yellow" onclick="saveWorkingInfo()">Save
+                        info</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Education Modal -->
+    <div class="modal fade" id="educationModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Education Form</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group" id="schoolNameContainer">
+                            <input class="form-control" type="text" id="schoolInput" placeholder="Name of the school">
+                        </div>
+                        <div class="form-group" id="studyContainer">
+                            <input class="form-control" type="text" id="studyInput" placeholder="Study made">
+                        </div>
+                        <div class="form-group" id="studyEndYearContainer">
+                            <input class="form-control" type="text" id="studyEndYearInput"
+                                placeholder="End year (2015)">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-primary-yellow" onclick="saveEducation()">Save
+                        info</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Skill Modal -->
+    <div class="modal fade" id="skillModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Skill Form</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group" id="skillContainer">
+                            <input class="form-control" type="text" id="skillInput" placeholder="Skill">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-primary-yellow" onclick="saveSkill()">Save
                         info</button>
                 </div>
             </div>

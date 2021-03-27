@@ -23,6 +23,20 @@ body {
      */
 }
 
+p {
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+
+.h6Edu {
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+
 .full-screen {
     height: 100vh;
 }

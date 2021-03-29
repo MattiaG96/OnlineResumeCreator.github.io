@@ -296,7 +296,7 @@ function showPDFPreview() {
     document.getElementById("watermarkTemplate").style.backgroundImage = 'url("../img/watermark.png")'
     html2pdf().set({
         pagebreak: {
-            avoid: ['p', 'h6', 'h3']
+            avoid: ['p', 'h6', 'h3', 'div']
         }
     }).from(element).save('preview.pdf').then(() => {
         console.log("DONE")
@@ -315,7 +315,7 @@ function printPDF() {
     const element = document.getElementById("resumeTemplate");
     html2pdf().set({
         pagebreak: {
-            avoid: ['p', 'h6', 'h3']
+            avoid: ['p', 'h6', 'h3', 'div']
         }
     }).from(element).save('resume.pdf').then(() => {
         console.log("DONE")

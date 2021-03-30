@@ -43,151 +43,137 @@
                 <div class="col-5 text-center" style="background-color: rgb(253, 101, 101); word-wrap: break-word;">
                     <br>
                     <br>
-                    <img id="profileImage" class="circular-img" src="../img/man-at-office.jpg" style="border: black 3px solid !important;">
+                    <img id="profileImage" class="circular-img" style="border: black 3px solid !important;">
                     <br>
                     <br>
-                    <h1 style="margin-bottom: 0px; color: rgb(78, 78, 78);">Name</h1>
-                    <h1 style="margin-top: 0px; color: rgb(78, 78, 78);">Surname</h1>
-                    <h4 style="color: white; font-weight: lighter;">Career</h4>
+                    <button type="button" class="btn btn-primary btn-primary-yellow hiddebleButtons"
+                        data-bs-toggle="modal" data-bs-target="#basicInfoModal"><i class="fas fa-plus"
+                            style="margin-right: 5px;"></i>Add basic info</button>
+                    <h1 style="margin-bottom: 0px; color: rgb(78, 78, 78);" id="nameLabel">Name</h1>
+                    <h1 style="margin-top: 0px; color: rgb(78, 78, 78);" id="surnameLabel">Surname</h1>
+                    <h4 style="color: white; font-weight: lighter;" id="careerLabel">Career</h4>
                     <br>
                     <div style="border: rgb(78, 78, 78) 1px solid; margin-left: 10px; margin-right: 10px;"></div>
                     <br><br>
-                    <!-- Imagen Personalizada -->
+                    <img src="../img/phone_gray.png" width="70px" height="70px" style="margin-bottom: 10px;">
+                    <h5 style="color: rgb(78, 78, 78);" id="telLabel">Tel number</h5>
+                    <br><br>
+                    <img src="../img/email_gray.png" width="70px" height="70px" style="margin-bottom: 10px;">
+                    <h5 style="color: rgb(78, 78, 78);" id="emailLabel">E-mail</h5>
+                    <br><br><br>
                 </div>
-                <div class="col-7">
-                    1
-                </div>
-            </div>
-        </div>
-
-        <!--
-        <div class="container" id="resumeTemplate">
-            <div class="row">
-                <div class="col">
-                    <div class="white-background">
-                        <div
-                            style="background-color: rgb(0, 157, 219); margin-left: -20px; margin-right: -20px; margin-top: -20px;" id="blueHeader">
-                            <div class="row">
-                                <div class="col text-center">
-                                    <img id="profileImage" height="200px" width="200px"
-                                        style="object-fit: cover; margin: 20px;">
-                                </div>
-                                <div class="col my-auto">
-                                    <button type="button" class="btn btn-primary btn-primary-yellow hiddebleButtons"
-                                        data-bs-toggle="modal" data-bs-target="#basicInfoModal"><i class="fas fa-plus"
-                                            style="margin-right: 5px;"></i>Add basic info</button>
-                                    <h4 style="color: white; margin-bottom: 0px;" id="nameLabel">Name</h4>
-                                    <h1 style="color: white;" id="surnameLabel">Surname</h1>
-                                    <h5 style="color: white;"><span
-                                            style="background-color: rgb(50, 50, 50); padding-top: 2px; padding-bottom: 2px; padding-left: 10px; padding-right: 10px; font-weight: lighter;"
-                                            id="careerLabel">Career</span></h5>
-                                </div>
-                            </div>
+                <div class="col-7" style="word-wrap: break-word;">
+                    <br><br>
+                    <div class="row">
+                        <div class="col-1 my-auto">
+                            <div style="border: rgb(253, 101, 101) 1px solid;"></div>
                         </div>
-                        <div class="row">
-                            <div class="col-5" style="background-color: rgb(220, 220, 220); word-wrap: break-word;">
-                                <br>
-                                <div class="row">
-                                    <h5 style="color: white; margin-left: -12px !important;"><span
-                                            style="background-color: rgb(50, 50, 50); padding-top: 2px; padding-bottom: 2px; padding-left: 30px; padding-right: 5px;">CONTACT</span>
-                                    </h5>
-                                    <br>
-                                    <p id="telLabel" style="padding-left: 30px;">Phone number: </p>
-                                    <p id="emailLabel" style="padding-left: 30px;">E-mail: </p>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <h5 style="color: white; margin-left: -12px !important;"><span
-                                            style="background-color: rgb(50, 50, 50); padding-top: 2px; padding-bottom: 2px; padding-left: 30px; padding-right: 5px;">SOCIAL</span>
-                                        <button type="button" class="btn btn-primary btn-primary-yellow hiddebleButtons"
-                                            data-bs-toggle="modal" data-bs-target="#socialModal"><i class="fas fa-plus"
-                                                style="margin-right: 5px;"></i>Add social</button>
-                                    </h5>
-                                    <div id="socialContainer">
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <h5 style="color: white; margin-left: -12px !important;"><span
-                                            style="background-color: rgb(50, 50, 50); padding-top: 2px; padding-bottom: 2px; padding-left: 30px; padding-right: 5px;">EDUCATION</span>
-                                        <button type="button" class="btn btn-primary btn-primary-yellow hiddebleButtons"
-                                            data-bs-toggle="modal" data-bs-target="#educationModal"><i
-                                                class="fas fa-plus" style="margin-right: 5px;"></i>Add
-                                            education</button>
-                                    </h5>
-                                    <br>
-                                    <div id="educationContainer">
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-7">
-                                <br>
-                                <div class="row" style="margin-left: 10px; margin-right: 10px;">
-                                    <h5 style="font-weight: bolder;">
-                                        ABOUT ME
-                                    </h5>
-                                    <div style="background-color: rgb(0, 157, 219); height: 1px;"></div>
-                                    <br>
-                                    <div class="row">
-                                        <p id="aboutMeLabel" style="color: rgb(120, 120, 120);">
-
-                                        </p>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row" style="margin-left: 10px; margin-right: 10px;">
-                                    <h5 style="font-weight: bolder;">
-                                        WORK EXPERIENCE <button type="button"
-                                            class="btn btn-primary btn-primary-yellow hiddebleButtons"
-                                            data-bs-toggle="modal" data-bs-target="#workExperienceModal"><i
-                                                class="fas fa-plus" style="margin-right: 5px;"></i>Add work
-                                            experience</button>
-                                    </h5>
-                                    <div style="background-color: rgb(0, 157, 219); height: 1px;"></div>
-                                    <br>
-                                    <div class="row" id="workExperienceContainer">
-
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row" style="margin-left: 10px; margin-right: 10px;">
-                                    <h5 style="font-weight: bolder;">
-                                        SKILLS <button type="button"
-                                            class="btn btn-primary btn-primary-yellow hiddebleButtons"
-                                            data-bs-toggle="modal" data-bs-target="#skillModal"><i class="fas fa-plus"
-                                                style="margin-right: 5px;"></i>Add skills</button>
-                                    </h5>
-                                    <div style="background-color: rgb(0, 157, 219); height: 1px;"></div>
-                                    <br>
-                                    <div class="row">
-                                        <div class="col" id="skillColOne"></div>
-                                        <div class="col" id="skillColTwo"></div>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row" style="margin-left: 10px; margin-right: 10px;">
-                                    <h5 style="font-weight: bolder;">
-                                        LANGUAGES <button type="button"
-                                            class="btn btn-primary btn-primary-yellow hiddebleButtons"
-                                            data-bs-toggle="modal" data-bs-target="#languagesModal"><i
-                                                class="fas fa-plus" style="margin-right: 5px;"></i>Add
-                                            languages</button>
-                                    </h5>
-                                    <div style="background-color: rgb(0, 157, 219); height: 1px;"></div>
-                                    <br>
-                                    <div class="row text-center" id="languagesContainer">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="full-screen-watermark"  id="watermarkTemplate"></div>
+                        <div class="col-5">
+                            <h4 style="font-weight: lighter; color: rgb(253, 101, 101);"><span
+                                    style="border: rgb(253, 101, 101) 3px solid; border-radius: 50%; color: rgb(253, 101, 101); padding-top: 5px; padding-bottom: 5px; padding-right: 10px; padding-left: 10px;"><i
+                                        class="far fa-user"></i></span> ABOUT ME</h4>
+                        </div>
+                        <div class="col my-auto">
+                            <div style="border: rgb(253, 101, 101) 1px solid;"></div>
                         </div>
                     </div>
+                    <br>
+                    <p id="aboutMeLabel" style="color: rgb(78, 78, 78); padding-left: 30px; font-weight: bold;">
+                        About me description
+                    </p>
+                    <br><br>
+                    <div class="row">
+                        <div class="col-1 my-auto">
+                            <div style="border: rgb(253, 101, 101) 1px solid;"></div>
+                        </div>
+                        <div class="col-6">
+                            <h4 style="font-weight: lighter; color: rgb(253, 101, 101);"><span
+                                    style="border: rgb(253, 101, 101) 3px solid; border-radius: 50%; color: rgb(253, 101, 101); padding: 5px;"><i
+                                        class="fas fa-graduation-cap"></i></span> EDUCATION</h4>
+                        </div>
+                        <div class="col my-auto">
+                            <div style="border: rgb(253, 101, 101) 1px solid;"></div>
+                        </div>
+                    </div>
+                    <br>
+                    <button type="button" class="btn btn-primary btn-primary-yellow hiddebleButtons"
+                        data-bs-toggle="modal" data-bs-target="#educationModal"><i class="fas fa-plus"
+                            style="margin-right: 5px;"></i>Add
+                        education</button>
+                    <div id="educationContainer" style="padding-left: 30px;">
+
+                    </div>
+                    <br><br>
+                    <div class="row">
+                        <div class="col-1 my-auto">
+                            <div style="border: rgb(253, 101, 101) 1px solid;"></div>
+                        </div>
+                        <div class="col-8">
+                            <h4 style="font-weight: lighter; color: rgb(253, 101, 101);"><span
+                                    style="border: rgb(253, 101, 101) 3px solid; border-radius: 50%; color: rgb(253, 101, 101); padding-left: 10px; padding-right: 10px; padding-top: 5px; padding-bottom: 5px;"><i
+                                        class="fas fa-briefcase"></i></span> WORK EXPERIENCE</h4>
+                        </div>
+                        <div class="col my-auto">
+                            <div style="border: rgb(253, 101, 101) 1px solid;"></div>
+                        </div>
+                    </div>
+                    <br>
+                    <button type="button" class="btn btn-primary btn-primary-yellow hiddebleButtons"
+                        data-bs-toggle="modal" data-bs-target="#workExperienceModal"><i class="fas fa-plus"
+                            style="margin-right: 5px;"></i>Add work
+                        experience</button>
+                    <div class="row" id="workExperienceContainer" style="padding-left: 30px;">
+
+                    </div>
+                    <br><br>
+                    <div class="row">
+                        <div class="col-1 my-auto">
+                            <div style="border: rgb(253, 101, 101) 1px solid;"></div>
+                        </div>
+                        <div class="col-4">
+                            <h4 style="font-weight: lighter; color: rgb(253, 101, 101);"><span
+                                    style="border: rgb(253, 101, 101) 3px solid; border-radius: 50%; color: rgb(253, 101, 101); padding-left: 10px; padding-right: 10px; padding-top: 5px; padding-bottom: 5px;"><i
+                                        class="fas fa-cog"></i></span> SKILLS</h4>
+                        </div>
+                        <div class="col my-auto">
+                            <div style="border: rgb(253, 101, 101) 1px solid;"></div>
+                        </div>
+                    </div>
+                    <br>
+                    <button type="button" class="btn btn-primary btn-primary-yellow hiddebleButtons"
+                        data-bs-toggle="modal" data-bs-target="#skillModal"><i class="fas fa-plus"
+                            style="margin-right: 5px;"></i>Add skills</button>
+                    <div class="row" id="skillsContainer" style="padding-left: 30px;">
+
+                    </div>
+                    <br><br>
+                    <div class="row">
+                        <div class="col-1 my-auto">
+                            <div style="border: rgb(253, 101, 101) 1px solid;"></div>
+                        </div>
+                        <div class="col-6">
+                            <h4 style="font-weight: lighter; color: rgb(253, 101, 101);"><span
+                                    style="border: rgb(253, 101, 101) 3px solid; border-radius: 50%; color: rgb(253, 101, 101); padding-left: 10px; padding-right: 10px; padding-top: 5px; padding-bottom: 5px;"><i
+                                        class="fas fa-globe-africa"></i></span> LANGUAGES</h4>
+                        </div>
+                        <div class="col my-auto">
+                            <div style="border: rgb(253, 101, 101) 1px solid;"></div>
+                        </div>
+                    </div>
+                    <br>
+                    <button type="button" class="btn btn-primary btn-primary-yellow hiddebleButtons"
+                        data-bs-toggle="modal" data-bs-target="#languagesModal"><i class="fas fa-plus"
+                            style="margin-right: 5px;"></i>Add
+                        languages</button>
+                    <div class="row text-center" id="languagesContainer">
+
+                    </div>
                 </div>
+                <div class="full-screen-watermark"  id="watermarkTemplate"></div>
             </div>
         </div>
-    -->
     </div>
+    <br><br>
 
 
 

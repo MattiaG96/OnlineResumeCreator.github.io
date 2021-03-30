@@ -532,6 +532,7 @@ function showPDFPreview() {
     document.getElementById("blueHeader").style.marginRight = '-100px';
     document.getElementById("blueHeader").style.marginTop = '-40px';
     document.getElementById("watermarkTemplate").style.visibility = "visible"
+    document.getElementById("testTemplate").style.backgroundImage = 'url("../img/watermark.png")';
     html2pdf().set({
         pagebreak: {
             avoid: ['p', 'h6', 'h3', 'img', 'h5']
@@ -543,6 +544,7 @@ function showPDFPreview() {
         document.getElementById("blueHeader").style.marginLeft = '-20px';
         document.getElementById("blueHeader").style.marginRight = '-20px';
         document.getElementById("blueHeader").style.marginTop = '-20px';
+        document.getElementById("testTemplate").style.backgroundImage = '';
     });
 
 }

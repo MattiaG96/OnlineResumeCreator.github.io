@@ -498,13 +498,13 @@ function populateLanguages() {
     languageList.forEach(language => {
         
         if (language.level === 'basic') {
-            level = '<img src="../img/25.png" height="100px" width="100px">';
+            level = '<img src="../img/25.png" height="50px" width="50px">';
         } else if (language.level === 'intermediate') {
-            level = '<img src="../img/50.png" height="100px" width="100px">';
+            level = '<img src="../img/50.png" height="50px" width="50px">';
         } else if (language.level === 'advanced') {
-            level = '<img src="../img/75.png" height="100px" width="100px">';
+            level = '<img src="../img/75.png" height="50px" width="50px">';
         } else if (language.level === 'expert') {
-            level = '<img src="../img/100.png" height="100px" width="100px">';
+            level = '<img src="../img/100.png" height="50px" width="50px">';
         }
 
         html += '<div class="col text-center my-auto">' +
@@ -528,15 +528,21 @@ function deleteLanguage(langRef) {
 function showPDFPreview() {
     $('.hiddebleButtons').hide();
     const element = document.getElementById("resumeTemplate");
+    document.getElementById("blueHeader").style.marginLeft = '-100px';
+    document.getElementById("blueHeader").style.marginRight = '-100px';
+    document.getElementById("blueHeader").style.marginTop = '-40px';
     document.getElementById("watermarkTemplate").style.visibility = "visible"
     html2pdf().set({
         pagebreak: {
-            avoid: ['p', 'h6', 'h3', 'div']
+            avoid: ['p', 'h6', 'h3', 'img', 'h5']
         }
     }).from(element).save('preview.pdf').then(() => {
         console.log("DONE")
         $('.hiddebleButtons').show();
         document.getElementById("watermarkTemplate").style.visibility = "hidden"
+        document.getElementById("blueHeader").style.marginLeft = '-20px';
+        document.getElementById("blueHeader").style.marginRight = '-20px';
+        document.getElementById("blueHeader").style.marginTop = '-20px';
     });
 
 }
@@ -544,13 +550,19 @@ function showPDFPreview() {
 function printPDF() {
     $('.hiddebleButtons').hide();
     const element = document.getElementById("resumeTemplate");
+    document.getElementById("blueHeader").style.marginLeft = '-100px';
+    document.getElementById("blueHeader").style.marginRight = '-100px';
+    document.getElementById("blueHeader").style.marginTop = '-40px';
     html2pdf().set({
         pagebreak: {
-            avoid: ['p', 'h6', 'h3', 'div']
+            avoid: ['p', 'h6', 'h3', 'img', 'h5']
         }
     }).from(element).save('resume.pdf').then(() => {
         console.log("DONE")
         $('.hiddebleButtons').show();
+        document.getElementById("blueHeader").style.marginLeft = '-20px';
+        document.getElementById("blueHeader").style.marginRight = '-20px';
+        document.getElementById("blueHeader").style.marginTop = '-20px';
     });
 
 }

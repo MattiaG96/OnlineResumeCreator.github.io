@@ -119,10 +119,34 @@ p {
     margin: 1px;
 }
 
+.round_black_badge {
+    background-color: rgb(36, 36, 36);
+    border-radius: 50%;
+    height: 10px;
+    width: 10px;
+    margin: 1px;
+}
+
+.round_white_badge {
+    background-color: white;
+    border-radius: 50%;
+    height: 10px;
+    width: 10px;
+    margin: 1px;
+}
+
 .circular-img {
     border-radius: 50% !important;
     height: 250px !important;
     width: 250px !important;
+    object-fit: cover; 
+    margin: 20px;
+}
+
+.circular-img-smaller {
+    border-radius: 50% !important;
+    height: 200px !important;
+    width: 200px !important;
     object-fit: cover; 
     margin: 20px;
 }

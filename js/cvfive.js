@@ -497,7 +497,7 @@ function populateWorkExperience() {
             '<p style="color: white;">' + work.startYear + '-' + work.endYear + '</p>' +
             '</div>' +
             '<div class="col">' +
-            '<p style="color: rgb(0, 183, 255);">' + work.companyName + '<button type="button" class="btn hiddebleButtons" onclick="deleteWork(' + workExperience.indexOf(work) + ')"><i class="far fa-trash-alt"></i></button></p>' +
+            '<p style="color: rgb(0, 183, 255);">' + work.companyName + ' // ' + work.position + '<button type="button" class="btn hiddebleButtons" onclick="deleteWork(' + workExperience.indexOf(work) + ')"><i class="far fa-trash-alt"></i></button></p>' +
             '<p style="color: white;">' + work.description + '</p>' +
             '</div>' +
             '</div>';
